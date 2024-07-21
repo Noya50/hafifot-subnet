@@ -9,7 +9,7 @@ resource "azurerm_subnet" "this" {
 module "nsg" {
   for_each = var.network_security_group_id != null || var.no_nsg_enabled == true ? tomap({}) : tomap({ 0 = true })
 
-  source = "git::https://github.com/Noya50/hafifot-nsg.git"
+  source = "git::https://github.com/Noya50/hafifot-nsg.git?ref=main"
 
   name                = var.network_security_group_name
   location            = var.location
